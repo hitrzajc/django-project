@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for kolo in matches %}
+        <h1>
+            Kolo: {{forloop.counter}}
+        </h1>
+        <ul>
+            {% for match in kolo %}
+            <li>    
+                {{match.0}} vs {{match.1}}
+            </li>
+            {% endfor %}
+        </ul>
+        
+    {% endfor %}
+    {{ error }}
+{% endblock content %}

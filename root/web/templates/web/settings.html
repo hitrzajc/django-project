@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        Want to participate?
+        <input type="checkbox" value='1' name='checkbox' {{ checked }} >
+    </p>
+    <input type="submit" value='submit'>
+</form>
+{% endblock content %}

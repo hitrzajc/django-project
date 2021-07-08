@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>MY SITE</title>
+        <link rel="icon" href="{% static 'logo.gif' %}" type="image/x-icon">
+        <link href="{% static 'main.css' %}" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="BannerTitle">
+                {% block title %}
+                    {{ title }}
+                {% endblock title %}
+
+            </div>
+            <header id="header">
+                {% if user.is_authenticated %}
+                    <p class='UserLogin'>
+                        HELLO {{ user.username }}
+                        <a href='{% url 'logout' %}'>logout</a>
+                        <a href='{% url 'settings' %}'>settings</a>
+                    </p>
+
+
+                {% else %}
+                    <div class='UserLogin'>
+                        <!-- <a href='/register'>register</a>
+                         or  -->
+                        <a href='{% url 'login' %}'>login</a>
+                    </div>
+                    
+                {% endif %}
+                <div>
+                    <a href='{% url 'index' %}'>home</a>
+                    <a href='{% url 'match' %}'>match</a>
+                </div>
+                <div id="topbanner">
+                    <img src="{% static 'top_banner.png' %}" width="800px" height="auto" alt=""/>
+                </div>    
+            </header>
+                {% block content %}
+                
+                {% endblock content %}
+            <footer id="footer">Copyright &copy; Web Design</footer>
+        </div>
+    </body>
+</html>
