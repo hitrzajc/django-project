@@ -74,7 +74,7 @@ def match(request):
     half = n//2
     
     if n != NUM_USERS_ALLOWED_AT_TURNAMENT:
-        content['error'] = 'Wrong number of participantes'
+        content['error'] = True
         return render(request, 'web/match.html', content)
     
     matches = []
