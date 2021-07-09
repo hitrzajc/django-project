@@ -49,7 +49,7 @@ def user_settings(request):
     }
     
     if request.method=='POST':
-        is_participating = bool(request.POST.get('isParticipating'))
+        is_participating = bool(request.POST.get('is_Participating'))
     
         if is_participating != profile.participating:
             profile.participating = is_participating
