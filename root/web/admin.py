@@ -1,4 +1,8 @@
 from django.contrib import admin
 from .models import UserProfile, User
-# Register your models here.
-admin.site.register(UserProfile)
+
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('user', 'participating')
+    search_fields = ('user', )
+
+admin.site.register(UserProfile, UserProfileAdmin)
