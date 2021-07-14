@@ -97,6 +97,5 @@ def match(request):
             matches[d].append((a,b))
     
     content['matches'] = matches
-    print(matches[0])
     return render(request, 'web/match.html', content)
         
